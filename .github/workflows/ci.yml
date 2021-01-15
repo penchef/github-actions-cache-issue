@@ -16,6 +16,10 @@ jobs:
           node-version: '12'
       - name: clean node_modules
         run: rm -rf ./node_modules
+      - name: Yarn Install (without ./node_modules cached)
+        run: yarn install
+      - name: clean node_modules
+        run: rm -rf ./node_modules
       - uses: actions/cache@v2
         id: node-modules-cache # use this to check for `cache-hit` (`steps.node-modules-cache.outputs.cache-hit != 'true'`)
         with:
