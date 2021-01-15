@@ -27,7 +27,7 @@ jobs:
             **/node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
       - name: Conditional Yarn Install (if ./node_modules were not cached)
-        if: steps.${{ runner.os }}-node-modules-cache.outputs.cache-hit != 'true'
+        if: steps.node-modules-cache.outputs.cache-hit != 'true' != 'true'
         run: yarn install
       - name: clean node_modules
         run: rm -rf ./node_modules
